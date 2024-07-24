@@ -45,7 +45,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner | toLowerCase }}/fika-docker:${{ github.event.inputs.fika_branch | toLowerCase }}
+          tags: ghcr.io/asterle/fika-docker:${{ github.event.inputs.fika_branch | toLowerCase }}
           build-args: |
             FIKA_BRANCH=${{ github.event.inputs.fika_branch }}
             SPT_BRANCH=${{ github.event.inputs.spt_branch }}
