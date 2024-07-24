@@ -5,10 +5,14 @@ name: Build and Push Docker Image
 on:
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Docker image version'
+      fika_branch:
+        description: 'FIKA branch to build'
         required: true
-        default: 'latest'
+        default: 'v2.2.3'
+      spt_branch:
+        description: 'SPT branch to build'
+        required: true
+        default: '3.9.3'
 
 jobs:
   build:
@@ -41,4 +45,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/fika-docker:${{ github.event.inputs.fika_version }}
+          tags: ghcr.io/${{ github.repository_owner }}/fika-docker:${{ github.event.inputs.fika_branch }}
+          build-args: |
+            FIKA_BRANCH=${{ github.event.inputs.fika_branch }}
+            SPT_BRANCH=${{ github.event.inputs.spt_branch }}
