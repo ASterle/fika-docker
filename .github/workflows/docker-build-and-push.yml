@@ -8,11 +8,11 @@ on:
       fika_branch:
         description: 'FIKA branch to build'
         required: true
-        default: 'v2.1.1'
+        default: 'v2.2.3'
       spt_branch:
         description: 'SPT branch to build'
         required: true
-        default: '3.8.3'
+        default: '3.9.3'
 
 jobs:
   build:
